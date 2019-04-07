@@ -1,0 +1,14 @@
+{
+  "name": "favjunk",
+  "version": "0.0.1",
+  "description": "Manage your favorite junk files",
+  "main": "favjunk.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "favjunk"
+  ],
+  "author": "Chrono Lai",
+  "license": "ISC"
+}
