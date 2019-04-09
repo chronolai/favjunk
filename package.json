@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Manage your favorite junk files",
   "main": "favjunk.js",
+  "bin": {
+    "favjunk": "cli.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,5 +13,11 @@
     "favjunk"
   ],
   "author": "Chrono Lai",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "md5-file": "^4.0.0",
+    "walk": "^2.3.14",
+    "yaml": "^1.5.0",
+    "yargs": "^13.2.2"
+  }
 }
