@@ -1,8 +1,8 @@
-const fs =  require('fs');
-const os =  require('os');
-const path =  require('path');
+const fs = require('fs');
+const os = require('os');
+const path = require('path');
 
-const yaml =  require('yaml');
+const yaml = require('yaml');
 const md5File = require('md5-file');
 
 const homedir = os.homedir();
@@ -11,13 +11,13 @@ const ymlfile = `${homedir}/.favjunk.yml`;
 const unique = (val, idx, self) => self.indexOf(val) === idx;
 const resolvePath = p => path.resolve(p);
 const getValidatedFiles = l => l.filter(f => fs.lstatSync(f).isFile());
-const getHashedFiles = l => l.map(p=> ({
+const getHashedFiles = l => l.map(p => ({
   hash: md5File.sync(p),
   path: resolvePath(p),
 }));
 
 function walkDir(dir, callback, recursive) {
-  fs.readdirSync(dir).forEach( f => {
+  fs.readdirSync(dir).forEach(f => {
     let dirPath = path.join(dir, f);
     let stat = fs.statSync(dirPath);
     if (stat.isDirectory()) {
@@ -33,28 +33,28 @@ function walkDir(dir, callback, recursive) {
 };
 
 function cleanEmptyFoldersRecursively(folder) {
-    var fs = require('fs');
-    var path = require('path');
+  var fs = require('fs');
+  var path = require('path');
 
-    var isDir = fs.statSync(folder).isDirectory();
-    if (!isDir) {
-      return;
-    }
-    var files = fs.readdirSync(folder);
-    if (files.length > 0) {
-      files.forEach(function(file) {
-        var fullPath = path.join(folder, file);
-        cleanEmptyFoldersRecursively(fullPath);
-      });
-
-      files = fs.readdirSync(folder);
-    }
-
-    if (files.length == 0) {
-      fs.rmdirSync(folder);
-      return;
-    }
+  var isDir = fs.statSync(folder).isDirectory();
+  if (!isDir) {
+    return;
   }
+  var files = fs.readdirSync(folder);
+  if (files.length > 0) {
+    files.forEach(function (file) {
+      var fullPath = path.join(folder, file);
+      cleanEmptyFoldersRecursively(fullPath);
+    });
+
+    files = fs.readdirSync(folder);
+  }
+
+  if (files.length == 0) {
+    fs.rmdirSync(folder);
+    return;
+  }
+}
 
 function initYaml() {
   const data = {
@@ -64,7 +64,7 @@ function initYaml() {
 }
 
 function loadYaml() {
-  if(!fs.existsSync(ymlfile)) {
+  if (!fs.existsSync(ymlfile)) {
     initYaml();
   }
   const file = fs.readFileSync(ymlfile, 'utf8');
@@ -130,9 +130,7 @@ function exec(path, recursive = false) {
 }
 
 
-module.exports.init = initYaml;
-module.exports.load = loadYaml;
 module.exports.add = add;
 module.exports.remove = remove;
-module.exports.check = check;
 module.exports.exec = exec;
+module.exports.check = check;
