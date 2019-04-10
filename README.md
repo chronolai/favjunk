@@ -1,6 +1,6 @@
 # FavJunk
 
-FavJunk is a tool for junk files in your download folder.
+FavJunk is a tool for junk files in your download folder. Save file's md5 to favorite for clean.
 
 ## Installation
 
@@ -24,4 +24,16 @@ Options:
   --help, -h       Show help                                           [boolean]
   --path, -p       path                                  [string] [default: "."]
   --recursive, -r  recursively                        [boolean] [default: false]
+```
+
+## Example
+``` shell
+# change current path to download folder
+$ cd /path/to/downloads/old_driver
+
+# add junk files to favorite
+$ favjunk add *.url *.mht
+
+# clean all junk files in favorite
+$ favjunk
 ```
