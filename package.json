@@ -1,6 +1,6 @@
 {
   "name": "favjunk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Manage your favorite junk files",
   "main": "favjunk.js",
   "bin": {
